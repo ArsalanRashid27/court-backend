@@ -1,11 +1,10 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-const CaseSchema = new mongoose.Schema({
-  SN: String,
-  CaseNumber: String,
-  Parties: String,
-  PetitionerAdvocate: String,
-  RespondentAdvocate: String
+const caseSchema = new mongoose.Schema({
+    CaseNumber: String,
+    Parties: String,
+    PetitionerAdvocate: String,
+    RespondentAdvocate: String
 });
 
-export default mongoose.model("Case", CaseSchema);
+module.exports = mongoose.model("Case", caseSchema);

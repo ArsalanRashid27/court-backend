@@ -1,15 +1,14 @@
-import express from "express";
-import Case from "../models/Case.js";
-
+const express = require("express");
 const router = express.Router();
+const Case = require("../models/Case");
 
 router.delete("/deletecase/:id", async (req, res) => {
     try {
         await Case.findByIdAndDelete(req.params.id);
         res.json({ success: true });
-    } catch (err) {
-        res.status(500).json({ error: err.message });
+    } catch (e) {
+        res.status(500).json({ error: e.message });
     }
 });
 
-export default router;
+module.exports = router;
